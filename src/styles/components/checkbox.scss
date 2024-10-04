@@ -1,0 +1,26 @@
+.checkbox-home {
+  .checkbox-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .checkbox-input {
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      accent-color: #1a577e; 
+    }
+
+    .checkbox-label {
+      font-family: "Sofia Pro";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: #212224;
+      white-space: nowrap;
+      height: 18px;
+      padding-left: 10px;
+    }
+  }
+}

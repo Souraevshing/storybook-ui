@@ -1,0 +1,75 @@
+@use 'variables' as variables;
+
+.sidebar-tabs {
+  border: 1px solid #D9D9D9;
+  border-radius: 40px;
+  width: fit-content;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sidebar-tab-active {
+  /* Black 2 */
+  background-color: #212224;
+  border-radius: 100px;
+  color: white;
+}
+
+.secondary-text {
+  //styleName: Secondary Copy B3;
+  font-family: Sofia Pro, serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0;
+}
+
+.side-bar {
+  color: black;
+  width: variables.$sidebar-width;
+  transition: margin 2s;
+  flex-shrink: 0;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  overflow: auto !important;
+  top: variables.$navbar-height;
+  box-shadow: variables.$background-shadow !important;
+}
+
+.side-bar-content {
+  position: fixed;
+  top: variables.$navbar-height * 3.5;
+}
+
+.side-bar-active {
+  border-radius: 4px;
+  background: variables.$primary-iii-color;
+  color: #fff;
+  width: 220px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-left: 0px;
+}
+
+.side-bar-inactive {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.side-bar-item {
+  width: 236px;
+  padding: 10px;
+}
+
+.header-text {
+  font-family: Sofia Pro, serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.separator {
+  border-bottom: 0.5px solid rgba(217, 217, 217, 1) !important;
+}

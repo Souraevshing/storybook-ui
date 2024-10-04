@@ -1,0 +1,39 @@
+.calendarElement{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    border: 1px solid #ccc;
+    z-index: 999;
+}
+
+.calendarWrap{
+    display: inline-block;
+    position: relative;
+}
+
+// .cancel{
+//     margin-right: "8px";
+//     width: "77px";
+//     height: "40px";
+//     border-radius: "8px";
+//     background: "#F8F7FA";
+//     font-style: "normal";
+// }
+
+.cancel:hover{
+    opacity: 0.6;
+}
+
+// .submit{
+//     width: "77px";
+//     height: "40px";
+//     border-radius: "8px";
+//     background: "#1A577E";
+//     color: "white";
+//     font-style: "normal";
+// }
+
+.submit:hover{
+    opacity: 0.7;
+}

@@ -1,0 +1,25 @@
+.summaryCard {
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: 5px;
+    padding: 20px;
+
+
+    .linkText {
+        padding-right: 10px;
+        color: #189B77;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .titleText {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .valueText {
+        font-size: 30px;
+        font-weight: bold;
+    }
+}

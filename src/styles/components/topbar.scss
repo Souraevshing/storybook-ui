@@ -1,0 +1,112 @@
+@use '../variables' as variables;
+
+.topbar {
+  color: black;
+  transition: margin 2s;
+  flex-shrink: 0;
+  position: fixed;
+  overflow: auto !important;
+  top: variables.$navbar-height;
+  left: 300px;
+}
+
+.topbar-card {
+  box-sizing: border-box;
+  width: 381px;
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 40px;
+  padding: 10px 20px;
+}
+
+.topbar-tab {
+  font-family: 'Sofia Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  order: 0;
+  flex-grow: 0;
+  /* White */
+  background: #ffffff;
+  border-radius: 100px;
+  padding: 10px 20px;
+}
+
+/* Frame 8218 */
+
+/* Auto layout */
+
+.topbar-tab-active {
+  background-color: #212224;
+  border-radius: 100px;
+  color: white;
+}
+
+.topbar-active {
+  width: 111px;
+  // margin: 2px 0px;
+  color: #ffffff;
+  background: #212224;
+  border-radius: 100px;
+}
+
+.topbar-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 4px;
+
+  width: 74px;
+  height: 38px;
+
+  /* White */
+  background: #ffffff;
+  border-radius: 100px;
+
+  /* name */
+
+  width: 34px;
+  height: 18px;
+
+  /* BodyCopy Bold B1 */
+  font-family: 'Sofia Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+
+  /* Black 2 */
+  color: #212224;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.topbar-inactive {
+  border-radius: 100px;
+}
+
+.topbar-text {
+  width: 34px;
+  height: 18px;
+  color: #212224;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.top-bar {
+  height: 54px;
+  width: 482px;
+}

@@ -1,0 +1,43 @@
+.bg-light-grey {
+    background: white;
+    box-shadow: 0px 8px 36px -11px rgba(64, 66, 72, 0.16);
+}
+
+.common-navbar-container {
+    display: grid;
+    grid-template-columns: 4fr 12fr 13fr 7fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    margin: 0 60px;
+}
+
+.logo {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.header {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.action-items {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.user-action-items {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.nav-logo {
+    height: 30px;
+    width: 136px;
+    left: 151px;
+    top: 28px;
+    border-radius: 0px;
+}
+
+.header-label {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}

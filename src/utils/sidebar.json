@@ -1,0 +1,38 @@
+[
+  {
+    "title": "My Profile",
+    "path": "#my-profile"
+  },
+  {
+    "title": "Organization",
+    "path": "#organization"
+  },
+  {
+    "title": "Billing",
+    "path": "#billing"
+  },
+  {
+    "title": "Integrations",
+    "path": "#integrations"
+  },
+  {
+    "title": "Content Library",
+    "path": "#content-library"
+  },
+  {
+    "title": "Team Members",
+    "path": "#team-members"
+  },
+  {
+    "title": "Configuration",
+    "path": "#configuration"
+  },
+  {
+    "title": "Security",
+    "path": "#security"
+  },
+  {
+    "title": "Notifications",
+    "path": "#notifications"
+  }
+]

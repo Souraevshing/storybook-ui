@@ -1,0 +1,76 @@
+.billing-address-home {
+  //   background-color: gray;
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  padding-left: 12px;
+  width: 612px;
+
+  .billing-main-head {
+    padding-bottom: 11px;
+  }
+
+  .addressline {
+    padding-bottom: 22px;
+    .addressline-label {
+    }
+
+    .addressline-input {
+      width: 507px;
+      height: 40px;
+      border-radius: 4px;
+      border: 1px solid #d9d9d9;
+      text-indent: 12px;
+    }
+  }
+
+  .address-field {
+    background-color: "red";
+    .address-row {
+      .province-parent {
+        padding-bottom: 30px;
+      }
+
+      .country-parent {
+        padding-bottom: 30px;
+      }
+
+      display: flex;
+      justify-content: flex-start;
+      gap: 111px;
+      align-items: center;
+      .address-child {
+        .address-child-p {
+        }
+
+        .address-child-input {
+          border-radius: 4px;
+          text-indent: 12px;
+          width: 200px;
+          height: 40px;
+          box-sizing: border-box;
+          border: 1px solid #d9d9d9;
+
+          .address-select-option-placeholder {
+            background-color: white;
+            color: #999999;
+          }
+        }
+
+        .cityBoxError {
+          border: 1px solid red;
+        }
+
+        .provinceBoxError {
+          border: 1px solid red;
+        }
+
+        .postalBoxError {
+          border: 1px solid red;
+        }
+      }
+    }
+  }
+}

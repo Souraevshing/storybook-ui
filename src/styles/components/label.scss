@@ -1,0 +1,48 @@
+.label-wrapper {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+    background-color: #C7D7E4;
+    padding: 0px 10px;
+    border-radius: 4px;
+    height: 30px
+}
+
+.label-wrapper .label-text {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.label-wrapper .label-deletable {
+    padding: 0;
+    margin: 0;
+}
+
+.label-primary {
+    background: #C7D7E4 ;
+    color: #1A577E;
+}
+
+.label-light {
+    background-color: #ffffff;
+}
+
+.label-info {
+    background-color: #FDEDC5 !important;
+    color: #986000 !important;
+}
+
+.label-success {
+    background: #C4E3D9 !important;
+    color: #189B77 !important;
+}
+
+.label-warning {
+    background: #FFF2D9 !important;
+    color: #EEA008 !important;
+}
+
+.label-error {
+    background: #FFD8D6 !important;
+    color: #E32315 !important;
+}

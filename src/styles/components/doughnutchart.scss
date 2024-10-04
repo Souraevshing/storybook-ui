@@ -1,0 +1,101 @@
+.doughnut-container {
+    width: 570px;
+    height: 240px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doughnut-content-wrapper {
+    max-width: 145px;
+}
+
+.doughnut-header {
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0 12px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.doughnut-img {
+    width: 128px;
+    height: 128px;
+    margin: auto;
+    position: relative;
+}
+
+.doughnut-count {
+    width: 75px;
+    height: 75px;
+    font-size: 16px;
+    font-weight: 600;
+    position: absolute;
+    top: 27.5px;
+    left: 26.5px;
+    background-color: #F1F1F1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doughnut-legend-wrapper {
+    text-align: center;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 366px;
+    height: 192px;
+    padding: 16px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.doughnut-item-container {
+    max-width: 335px;
+    margin-bottom: 14px;
+}
+
+.doughnut-legend-content {
+    gap: 12px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.doughnut-mark {
+    min-width: 16px;
+    height: 16px;
+    background-color: #1A577E;
+    border-radius: 4px;
+}
+
+.doughnut-legend-text-one {
+    text-align: left;
+    text-transform: capitalize;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    margin: -2px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+}
+
+.doughnut-legend-text-two {
+    text-align: left;
+    padding-left: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 5px 0;
+}

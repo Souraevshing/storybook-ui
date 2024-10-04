@@ -1,0 +1,70 @@
+@import "./_variables.scss";
+@import 'tailwind-min.scss';
+@import './common.scss';
+@import './components/index.scss';
+@import './tailwind.scss'; // This will be generated at run time, Check package.json pre scripts
+@import './components/navbar.scss';
+@import './components/sidebar.scss';
+//place style for search field
+// @layer utilities{
+//     .placeholder-style::placeholder {
+//       // padding: 5px 12px;
+//       margin: 5px;
+//       font-size:12px;
+//       font-style:"normal";
+//       font-weight:400;
+//    }
+//   };
+// Font
+@font-face {
+    font-family: 'Sofia Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Sofia Pro'), url('./assets/fonts/Sofia-Pro-Regular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Sofia Pro'), url('./assets/fonts/Sofia-Pro-Medium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Sofia Pro'), url('./assets/fonts/Sofia-Pro-Semi-Bold.otf') format('truetype');
+}
+
+// TODO: need to check
+// .button-green {
+//     @apply px-4 py-3 bg-primary-green text-white rounded
+// }
+// .button-green-2 {
+//     @apply text-primary-green border-primary-green border px-4 py-3 hover: bg-primary-green hover: text-white
+// }
+.input {
+    @apply border border-gray-400 p-2 rounded mt-1
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Sofia Pro Bold'), url('./assets/fonts/Sofia-Pro-Bold.otf') format('truetype');
+}
+
+::-webkit-scrollbar{
+    width: 3px;
+    height: 3px;
+
+
+}
+
+::-webkit-scrollbar-thumb{
+    background:#C4C4C4;
+    border-radius: 1px;
+    
+}
+

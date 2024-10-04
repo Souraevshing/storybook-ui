@@ -1,0 +1,47 @@
+.chip-squared {
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    padding: 3px 6px !important;
+    color: #212224;
+}
+
+.chip {
+    padding: 4px !important;
+    border-radius: 18px !important
+}
+
+.chip-success {
+    background: #C4E3D9 !important;
+    color: #189B77 !important;
+}
+
+.chip-warning {
+    background: #FFF2D9 !important;
+    color: #EEA008 !important;
+}
+
+.chip-error {
+    background: #FFD8D6 !important;
+    color: #E32315 !important;
+}
+
+.chip-primary {
+    background: #C7D7E4 !important;
+    color: #1A577E !important;
+}
+.chip-light {
+    background-color: #ffffff;
+}
+
+.chip-info {
+    background-color: #FDEDC5 !important;
+    color: #986000 !important;
+}
+// .chip img {
+//     float: left;
+//     margin: 0 10px 0 -25px;
+//     height: 50px;
+//     width: 50px;
+//     border-radius: 50%;
+// }

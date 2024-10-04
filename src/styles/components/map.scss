@@ -1,0 +1,60 @@
+.gm-style .gm-style-iw-c {
+  background: rgb(15 15 15 / 60%) !important;
+  border-radius: 4px !important;
+  backdrop-filter: blur(4px) !important;
+  padding: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  color: #FFFFFF !important;
+  padding: 12px !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+  background: linear-gradient(45deg, rgba(15, 15, 15, 0.6), rgba(255, 255, 255, 0) 51%, rgba(145, 20, 20, 0) 100%) rgb(108 108 108) !important;
+  height: 8px !important;
+  width: 8px !important;
+}
+
+.gm-ui-hover-effect>span {
+  background-color: #FFFFFF !important;
+  height: 12px !important;
+  width: 12px !important;
+}
+
+.gm-ui-hover-effect {
+  display: none !important;
+}
+
+.gmnoprint {
+  bottom: 80px !important;
+}
+
+.gm-style-cc {
+  display: none !important;
+}
+
+.gmnoprint > div {
+  width: 25px !important;
+  height: 70px !important;
+  border-radius: 12px !important;
+}
+
+.gmnoprint > div .gm-control-active {
+  width: inherit !important;
+  height: 35px !important;
+}
+
+.gmnoprint > div > div {
+  width: 100% !important;
+  margin: auto !important;
+}
+
+.gmnoprint > div .gm-control-active > img {
+  height: 12px !important;
+  width: 12px !important;
+}

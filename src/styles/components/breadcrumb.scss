@@ -1,0 +1,61 @@
+/* Style the tab */
+.node-list {
+  overflow: hidden;
+  width: 100%;
+  padding: 0px;
+  margin: 5px auto;
+}
+  
+.node-list li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: 15%;
+  float: left;
+  position: relative;
+  text-align: center;
+  height: 71px;
+}
+  
+.node-list li p {
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+}
+
+.node-list li:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 18px;
+  background-color:#C7D7E4;
+  margin: 5px auto 5px auto;
+  border-radius: 50%;
+}
+
+.node-list li.active:after {
+  content: '\2713';
+  background: #1A577E;
+  outline: 2px solid #1A577E;
+  outline-offset: 3px;
+  border: 2px solid #1A577E;
+}
+
+.node-list li:before {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #C7D7E4;
+  position: absolute;
+  left: -50%;
+  bottom: 33px;
+  z-index: -1;
+}
+
+.node-list li.active:before {
+  background: #1A577E;
+}

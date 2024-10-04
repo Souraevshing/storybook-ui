@@ -1,0 +1,94 @@
+[{
+        "id": 1,
+        "label": "Style Name",
+        "value": "style_name",
+        "childFilters": [{
+                "id": 11,
+                "label": "Fabric",
+                "value": "fabric"
+            },
+            {
+                "id": 12,
+                "label": "Knit",
+                "value": "knit"
+            }
+        ]
+    }, {
+        "id": 2,
+        "label": "Category",
+        "value": "category",
+        "childFilters": [{
+                "id": 13,
+                "label": "category 1",
+                "value": "category_1"
+            },
+            {
+                "id": 11,
+                "label": "category 2",
+                "value": "category_2",
+                "isSelected": false
+            }
+        ]
+    }, {
+        "id": 4,
+        "label": "Type",
+        "value": "type",
+        "childFilters": [{
+                "id": 14,
+                "label": "Type 1",
+                "value": "Type_1"
+            },
+            {
+                "id": 15,
+                "label": "Type 2",
+                "value": "Type_2"
+            }
+        ]
+    }, {
+        "id": 3,
+        "label": "Components",
+        "value": "components",
+        "childFilters": [{
+                "id": 16,
+                "label": "components 1",
+                "value": "components_1"
+            },
+            {
+                "id": 17,
+                "label": "components 2",
+                "value": "components_2"
+            },
+            {
+                "id": 18,
+                "label": "components 3",
+                "value": "components_3"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "label": "Supply Chain",
+        "value": "Supply Chain",
+        "childFilters": [{
+                "id": 19,
+                "label": "option 1",
+                "value": "option_1"
+            },
+            {
+                "id": 20,
+                "label": "option 2",
+                "value": "option_2"
+            },
+            {
+                "id": 21,
+                "label": "option 3",
+                "value": "option_3"
+            },
+            {
+                "id": 22,
+                "label": "option 4",
+                "value": "option_4"
+            }
+        ]
+    }
+]

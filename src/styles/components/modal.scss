@@ -1,0 +1,18 @@
+.modal-container {
+  width: 1140px;
+  background: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.modal-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1140px;
+  height: 56px;
+  align-items: "center";
+  background: #dbe5eb;
+  border-radius: 8px 8px 0px 0px;
+}

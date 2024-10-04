@@ -1,0 +1,24 @@
+.date-range-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .date-range-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .date-range {
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: #212224;
+      padding-left: 12px;
+      padding-right: 12px;
+      height: 40px;
+      width: 200px;
+      box-sizing: border-box;
+    }
+  }
+}

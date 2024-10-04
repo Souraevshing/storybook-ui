@@ -1,0 +1,40 @@
+.fileupload-label {
+  padding: 10px 0px;
+  letter-spacing: 0em;
+  text-align: left;
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.fileupload-box {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  border: 2px;
+  margin: 9px 0px;
+}
+
+.upload-label {
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  text-decoration-line: underline;
+  margin: 0px 10px;
+}
+
+.image-container {
+  height: inherit;
+  border: 1px solid #c6c6c647;
+}
+
+.helper-icon {
+  svg {
+    height: 12px;
+    width: 12px;
+  }
+}

@@ -1,0 +1,9 @@
+@import url("./App.scss");
+@import url("./index.scss");
+@import url("./components/index.scss");
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Sofia-Pro-Regular"), url("../../public/assets/fonts/Sofia-Pro-Regular.otf") format("truetype");
+}/*# sourceMappingURL=global.css.map */

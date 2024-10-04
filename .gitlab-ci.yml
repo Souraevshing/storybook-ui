@@ -1,0 +1,215 @@
+default:
+  image: node:14-alpine
+stages:
+  - prepare
+  - test
+  - build
+  - deploy
+  - openMR
+
+
+# -----------------
+# AutoMR Jobs Start
+# -----------------
+
+create-merge-request-dev:
+  image: jimmyadaro/gitlab-ci-cd
+  before_script: []
+  stage: openMR
+  only:
+    - /^feature\/*/
+    - /^fix\/*/
+  script:
+      - apk add curl
+      - chmod +x autoGitlabMR.sh
+      - HOST=${CI_PROJECT_URL} CI_PROJECT_ID=${CI_PROJECT_ID} CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} GITLAB_USER_ID=${GITLAB_USER_ID} PRIVATE_TOKEN=${automatic_mr_token}
+      - ./autoGitlabMR.sh dev
+      - ./autoGitlabMR.sh qa
+      - ./autoGitlabMR.sh stable
+
+create-merge-request-staging:
+  image: jimmyadaro/gitlab-ci-cd
+  before_script: []
+  stage: openMR
+  only:
+    - stable
+  script:
+      - apk add curl
+      - chmod +x autoGitlabMR.sh
+      - HOST=${CI_PROJECT_URL} CI_PROJECT_ID=${CI_PROJECT_ID} CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} GITLAB_USER_ID=${GITLAB_USER_ID} PRIVATE_TOKEN=${automatic_mr_token}
+      - ./autoGitlabMR.sh staging
+
+create-merge-request-master:
+  image: jimmyadaro/gitlab-ci-cd
+  before_script: []
+  stage: openMR
+  only:
+    - staging
+  script:
+      - apk add curl
+      - chmod +x autoGitlabMR.sh
+      - HOST=${CI_PROJECT_URL} CI_PROJECT_ID=${CI_PROJECT_ID} CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} GITLAB_USER_ID=${GITLAB_USER_ID} PRIVATE_TOKEN=${automatic_mr_token}
+      - ./autoGitlabMR.sh master
+
+# -----------------
+# AutoMR Jobs End
+# -----------------
+
+prepare:
+  stage: prepare
+  only:
+    - dev
+    - staging
+    - qa
+    - master
+  cache:
+    key: ${CI_COMMIT_REF_NAME}
+    paths:
+      - node_modules
+  script:
+    - npm install
+
+build-documentation:
+  stage: build
+  only:
+    - dev
+    - staging
+    - qa
+    - master
+  cache:
+    key: ${CI_COMMIT_REF_NAME}
+    paths:
+      - node_modules
+    policy: pull
+  script:
+    - npm run build-ui
+  artifacts:
+    paths:
+      - storybook-static/
+
+build-package:
+  stage: build
+  only:
+    - dev
+    - staging
+    - qa
+    - master
+  cache:
+    key: ${CI_COMMIT_REF_NAME}
+    paths:
+      - node_modules
+    policy: pull
+  script:
+    - npm run build-package
+  artifacts:
+    paths:
+      - dist/
+
+deploy-dev-package:
+  stage: deploy
+  cache:
+    key: ${CI_COMMIT_REF_NAME}
+    paths:
+      - node_modules
+    policy: pull
+  environment:
+    name: development
+  only:
+    - dev
+  script:
+    - apk add git
+    - |
+      {
+        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+      } | tee -a .npmrc
+    - npm run semantic-release
+
+deploy-dev-documentation:
+  image: python:3.7-alpine
+  stage: deploy
+  environment:
+    name: development
+  only:
+    - dev
+  script:
+    # - export AWS_ACCESS_KEY_ID=$STAGE_AWS_ACCESS_KEY_ID
+    # - export AWS_SECRET_ACCESS_KEY=$STAGE_AWS_SECRET_ACCESS_KEY
+    # - export AWS_S3_LOCATION=$DEV_AWS_S3_LOCATION
+    # - pip install awscli
+    # - echo "AWS CLI Installed"
+    # - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    # - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    # - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    # - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    # - echo "DEPLOYED SUCCESSFULLY"
+    - export AWS_ACCESS_KEY_ID=$STAGE_AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$STAGE_AWS_SECRET_ACCESS_KEY
+    - export AWS_S3_LOCATION=$DEV_AWS_S3_LOCATION
+    - pip install awscli
+    - echo "AWS CLI Installed"
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - echo "DEPLOYED SUCCESSFULLY"
+
+deploy-qa:
+  image: python:3.7-alpine
+  stage: deploy
+  environment:
+    name: qa
+  only:
+    - qa
+  script:
+    - export AWS_ACCESS_KEY_ID=$STAGE_AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$STAGE_AWS_SECRET_ACCESS_KEY
+    - export AWS_S3_LOCATION=$QA_AWS_S3_LOCATION
+    - pip install awscli
+    - echo "AWS CLI Installed"
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --cache-control max-age=2592000 --acl public-read
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - echo "DEPLOYED SUCCESSFULLY"
+    - rm -rf ~/builds/jsnzVC5r/
+
+
+
+deploy-stage:
+  image: python:3.7-alpine
+  stage: deploy
+  environment:
+    name: staging
+  only:
+    - staging
+  script:
+    - export AWS_ACCESS_KEY_ID=$STAGE_AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$STAGE_AWS_SECRET_ACCESS_KEY
+    - export AWS_S3_LOCATION=$STAGE_AWS_S3_LOCATION
+    - pip install awscli
+    - echo "AWS CLI Installed"
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --cache-control max-age=2592000 --acl public-read
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - echo "DEPLOYED SUCCESSFULLY"
+
+
+deploy-prod:
+  image: python:3.7-alpine
+  stage: deploy
+  only:
+    - master
+  when: manual
+  environment:
+    name: production
+  script:
+    - export AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY
+    - export AWS_S3_LOCATION=$PROD_AWS_S3_LOCATION
+    - pip install awscli
+    - echo "AWS CLI Installed"
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --cache-control max-age=2592000 --acl public-read
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - aws s3 cp storybook-static/ $AWS_S3_LOCATION --recursive --exclude "index.html" --acl public-read --cache-control no-cache,must-revalidate
+    - aws s3 cp storybook-static/index.html $AWS_S3_LOCATION --cache-control no-cache,must-revalidate --acl public-read
+    - echo "DEPLOYED SUCCESSFULLY"
